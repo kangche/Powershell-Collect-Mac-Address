@@ -42,9 +42,9 @@ Return $t
 }
 # 华三交换机mac地址表格式化
 
-$UserName_and_Password = Update-Private -User guest -Password guest
-$H3CSwInfoSum = Import-Csv -Path .\swinfo.csv
-$CiscoSwInfoSum = Import-Csv -Path .\ciscoswinfo.csv
+$UserName_and_Password = Update-Private -User guest -Password guest # 网络设备密码，假设所有账号和密码都设置为了guest
+$H3CSwInfoSum = Import-Csv -Path .\swinfo.csv #  h3cswinfo.csv路径
+$CiscoSwInfoSum = Import-Csv -Path .\ciscoswinfo.csv #ciscoswinfo.csv 路径
 
 
 Write-Warning “开始获取华三交换机MAC地址表”
