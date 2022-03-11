@@ -1,9 +1,6 @@
-﻿
-Import-Module -Name  SSHSessions 
-
-
+﻿Import-Module -Name  SSHSessions 
 function Update-Private{param($User,$Password)$password | Out-File -Force  $env:USERPROFILE\PWD.secSet-ItemProperty   $env:USERPROFILE\PWD.sec -name Attributes -Value "Hidden"$pwd = (Get-Content -Force $env:USERPROFILE\PWD.sec  | ConvertTo-SecureString -AsPlainText   -Force)$Credential = New-Object System.Management.Automation.PSCredential $user, $pwdRemove-Item -Force $env:USERPROFILE\PWD.secreturn $Credential }
-
+## 交换机账号密码的获取
 Function Format-MacTableCisco
 {
 param($UserName_and_Password,$SwIp,$SwName)
@@ -22,6 +19,7 @@ $t +=$r
 }
 Return $t
 }
+#格式化思科MAC 地址表
 
 Function Format-MacTable
 {
@@ -42,7 +40,7 @@ $t +=$r
 }
 Return $t
 }
-
+# 华三交换机mac地址表格式化
 
 $UserName_and_Password = Update-Private -User guest -Password guest
 $H3CSwInfoSum = Import-Csv -Path .\swinfo.csv
